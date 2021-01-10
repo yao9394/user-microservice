@@ -25,16 +25,12 @@ RUN cd /usr/local/lib/ && curl -sS https://getcomposer.org/installer | php && mv
 
 RUN mkdir /siteroot
 
-RUN mkdir /var/lib/sitedata && chmod 0777 /var/lib/sitedata
-RUN mkdir /var/lib/testsitedata && chmod 0777 /var/lib/testsitedata
-
 RUN rm /etc/nginx/sites-available/default
 COPY nginx-site.conf /etc/nginx/sites-available/default
 
 RUN rm /etc/nginx/nginx.conf
 COPY nginx.conf /etc/nginx/nginx.conf
 
-COPY xdebug.ini /etc/php/7.4/mods-available/xdebug.ini
 COPY php.ini /etc/php7.4/fpm/php.ini
 
 WORKDIR /siteroot

@@ -16,3 +16,13 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
+
+// Routes for user.
+$router->group(['prefix' => 'user'], function () use ($router) {
+    $router->get('/', 'UserController@index');
+    $router->post('/', 'UserController@store');
+    $router->get('/{user}', 'UserController@show');
+    $router->delete('/delete/{user}', 'UserController@delete');
+    $router->put('/update/{user}', 'UserController@update');
+    $router->patch('/update/{user}', 'UserController@update');
+});

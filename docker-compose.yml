@@ -16,5 +16,12 @@ services:
             MYSQL_PASSWORD: password
         volumes:
             - dbdata:/var/lib/mysql
+    test-db:
+        image: mysql:5.7
+        environment:
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_DATABASE: user_micro_service_testing
+            MYSQL_USER: service_root
+            MYSQL_PASSWORD: password
 volumes:
     dbdata:
